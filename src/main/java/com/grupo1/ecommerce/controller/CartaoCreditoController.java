@@ -8,20 +8,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.grupo1.ecommerce.model.PessoaFisica;
-import com.grupo1.ecommerce.repository.PessoaFisicaRepository;
+import com.grupo1.ecommerce.model.CartaoCredito;
+import com.grupo1.ecommerce.repository.CartaoCreditoRepository;
 
 @RestController
-@RequestMapping(value = "/pessoafisica")
+@RequestMapping(value = "/cartaocredito")
 @CrossOrigin("*")
-public class PessoaFisicaController {
+public class CartaoCreditoController {
 	
 	@Autowired
-	private PessoaFisicaRepository repository;
+	private CartaoCreditoRepository repository;
 	
 	@GetMapping 
-	public List<PessoaFisica> findAll(){
-		List<PessoaFisica> lista = repository.findAll();
+	public List<CartaoCredito> findAll(){
+		List<CartaoCredito> lista = repository.findAll();
 		return lista;
 	}
 

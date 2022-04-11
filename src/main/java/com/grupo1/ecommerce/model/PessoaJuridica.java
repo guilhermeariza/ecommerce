@@ -11,8 +11,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "tb_pessoa_fisica")
-public class PessoaFisica {
+@Table(name = "tb_pessoa_juridica")
+public class PessoaJuridica {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,7 +45,7 @@ public class PessoaFisica {
 	@JoinColumn(name = "id_usuario")
 	private Usuario id_usuario;
 	
-	public PessoaFisica() {
+	public PessoaJuridica() {
 		
 	}
 
@@ -71,14 +71,6 @@ public class PessoaFisica {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getDataNascimento() {
-		return dataNascimento;
-	}
-
-	public void setDataNascimento(String dataNascimento) {
-		this.dataNascimento = dataNascimento;
 	}
 
 	public String getCpf() {
