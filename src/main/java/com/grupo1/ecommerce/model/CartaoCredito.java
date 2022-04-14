@@ -2,11 +2,11 @@ package com.grupo1.ecommerce.model;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -23,11 +23,11 @@ public class CartaoCredito {
 	private Long id;
 	
 	@NotNull
-	@Size(min = 1, max = 50)
+	@Size(min = 5, max = 10)
 	private String apelido;
 	
 	@NotNull
-	@Size(min = 1, max = 50)
+	@Size(min = 5, max = 10)
 	private String pessoaCartao;
 	
 	@NotNull
@@ -42,8 +42,8 @@ public class CartaoCredito {
 	private String cvv;
 	
 	@ManyToOne
+	@JoinColumn(name = "fk_id_pessoaJuridica")
 	@JsonIgnoreProperties("CartaoCredito")
-	@Column(name = "fk_id_pessoaJuridica" )
 	private PessoaJuridica pessoaJuridica;
 	
 	public CartaoCredito() {
@@ -97,10 +97,4 @@ public class CartaoCredito {
 	public void setCvv(String cvv) {
 		this.cvv = cvv;
 	}
-
-
-	
-
-	
-
 }
