@@ -2,13 +2,17 @@ package com.grupo1.ecommerce.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_cartao_credito")
@@ -36,6 +40,11 @@ public class CartaoCredito {
 	@NotNull
 	@Size(min = 3, max = 3)
 	private String cvv;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("CartaoCredito")
+	@Column(name = "fk_id_pessoaJuridica" )
+	private PessoaJuridica pessoaJuridica;
 	
 	public CartaoCredito() {
 		
