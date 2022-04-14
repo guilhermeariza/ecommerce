@@ -42,7 +42,6 @@ public class CartaoCredito {
 	private String cvv;
 	
 	@ManyToOne
-	@JoinColumn(name = "fk_id_pessoaJuridica")
 	@JsonIgnoreProperties("CartaoCredito")
 	private PessoaJuridica pessoaJuridica;
 	

@@ -50,7 +50,7 @@ public class CartaoCreditoController {
 	
 	@PutMapping
 	public ResponseEntity<CartaoCredito> put(@RequestBody CartaoCredito cartao){
-		return ResponseEntity.status(HttpStatus.OK).body(repository.save(cartao));
+		return ResponseEntity.ok(repository.save(cartao));
 	}
 
 	@DeleteMapping
