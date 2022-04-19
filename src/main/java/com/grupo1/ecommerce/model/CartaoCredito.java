@@ -20,18 +20,19 @@ public class CartaoCredito {
 	private Long id;
 	
 	@NotNull
-	@Size(min = 5, max = 10)
+	@Size(min = 3, max = 20)
 	private String apelido;
 	
 	@NotNull
-	@Size(min = 5, max = 10)
-	private String pessoaCartao;
+	@Size(min = 5, max = 20)
+	private String nomeCartao;
 	
 	@NotNull
 	@Size(min = 16, max = 16)
-	private String numeroDoCartao;
+	private String numeroCartao;
 	
 	@NotNull
+	@Size(min = 5, max = 5)
 	private String dataValidade;
 	
 	@NotNull
@@ -39,7 +40,7 @@ public class CartaoCredito {
 	private String cvv;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("CartaoCredito")
+	@JsonIgnoreProperties("cartaoCredito")
 	private PessoaJuridica pessoaJuridica;
 	
 	public CartaoCredito() {
@@ -62,20 +63,20 @@ public class CartaoCredito {
 		this.apelido = apelido;
 	}
 
-	public String getPessoaCartao() {
-		return pessoaCartao;
+	public String getNomeCartao() {
+		return nomeCartao;
 	}
 
-	public void setPessoaCartao(String pessoaCartao) {
-		this.pessoaCartao = pessoaCartao;
+	public void setNomeCartao(String nomeCartao) {
+		this.nomeCartao = nomeCartao;
 	}
 
-	public String getNumeroDoCartao() {
-		return numeroDoCartao;
+	public String getNumeroCartao() {
+		return numeroCartao;
 	}
 
-	public void setNumeroDoCartao(String numeroDoCartao) {
-		this.numeroDoCartao = numeroDoCartao;
+	public void setNumeroCartao(String numeroCartao) {
+		this.numeroCartao = numeroCartao;
 	}
 
 	public String getDataValidade() {

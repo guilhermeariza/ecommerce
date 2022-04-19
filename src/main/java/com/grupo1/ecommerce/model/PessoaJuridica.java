@@ -27,6 +27,10 @@ public class PessoaJuridica {
 	private String nomeFantasia;
 	
 	@NotNull
+	@Size(min = 1, max = 50)
+	private String razaoSocial;
+	
+	@NotNull
 	@Size(min = 5, max = 50)
 	private String email;
 	
@@ -35,8 +39,7 @@ public class PessoaJuridica {
     private String cnpj;
     
     @OneToMany(mappedBy = "pessoaJuridica", cascade = CascadeType.REMOVE)
-    @JsonIgnoreProperties("tb_pessoa_juridica")
-    
+    @JsonIgnoreProperties("pessoaJuridica")
 	private List <CartaoCredito> cartaoCredito;
     
 	public PessoaJuridica() {
@@ -89,6 +92,14 @@ public class PessoaJuridica {
 
 	public void setCartaoCredito(List<CartaoCredito> cartaoCredito) {
 		this.cartaoCredito = cartaoCredito;
+	}
+
+	public String getRazaoSocial() {
+		return razaoSocial;
+	}
+
+	public void setRazaoSocial(String razaoSocial) {
+		this.razaoSocial = razaoSocial;
 	}
 	
 }	
