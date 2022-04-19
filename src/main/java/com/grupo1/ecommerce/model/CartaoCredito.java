@@ -1,7 +1,5 @@
 package com.grupo1.ecommerce.model;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
