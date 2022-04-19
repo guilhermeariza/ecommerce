@@ -34,7 +34,7 @@ public class CartaoCredito {
 	private String numeroDoCartao;
 	
 	@NotNull
-	private Date dataValidade;
+	private String dataValidade;
 	
 	@NotNull
 	@Size(min = 3, max = 3)
