@@ -1,14 +1,18 @@
 package com.grupo1.ecommerce.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_pessoa_juridica")
@@ -20,31 +24,21 @@ public class PessoaJuridica {
 	
 	@NotNull
 	@Size(min = 1, max = 50)
-	private String nome;
+	private String nomeFantasia;
 	
 	@NotNull
 	@Size(min = 5, max = 50)
 	private String email;
 	
-	@NotNull
-	private String dataNascimento;
-	
-	@NotNull
-	@Size(min = 14, max = 14)
-	private String cpf;
-	
-	@NotNull
-	@Size(min = 5, max = 100)
-	private String enderecoCadastro;
-	
-	@NotNull
-	@Size(min = 9, max = 9)
-	private String cep;
-	
-	@OneToOne
-	@JoinColumn(name = "id_usuario")
-	private Usuario id_usuario;
-	
+    @NotNull
+    @Size(min = 18, max = 18)
+    private String cnpj;
+    
+    @OneToMany(mappedBy = "pessoaJuridica", cascade = CascadeType.REMOVE)
+    @JsonIgnoreProperties("tb_pessoa_juridica")
+    
+	private List <CartaoCredito> cartaoCredito;
+    
 	public PessoaJuridica() {
 		
 	}
@@ -58,11 +52,11 @@ public class PessoaJuridica {
 	}
 
 	public String getNome() {
-		return nome;
+		return nomeFantasia;
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nomeFantasia = nome;
 	}
 
 	public String getEmail() {
@@ -73,28 +67,28 @@ public class PessoaJuridica {
 		this.email = email;
 	}
 
-	public String getCpf() {
-		return cpf;
+	public String getNomeFantasia() {
+		return nomeFantasia;
 	}
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
+	public void setNomeFantasia(String nomeFantasia) {
+		this.nomeFantasia = nomeFantasia;
 	}
 
-	public String getEnderecoCadastro() {
-		return enderecoCadastro;
+	public String getCnpj() {
+		return cnpj;
 	}
 
-	public void setEnderecoCadastro(String enderecoCadastro) {
-		this.enderecoCadastro = enderecoCadastro;
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
 	}
 
-	public String getCep() {
-		return cep;
+	public List<CartaoCredito> getCartaoCredito() {
+		return cartaoCredito;
 	}
 
-	public void setCep(String cep) {
-		this.cep = cep;
+	public void setCartaoCredito(List<CartaoCredito> cartaoCredito) {
+		this.cartaoCredito = cartaoCredito;
 	}
-
-}
+	
+}	
