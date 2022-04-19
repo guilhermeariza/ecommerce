@@ -40,7 +40,7 @@ public class CartaoCreditoController {
 	
 	@GetMapping("apelido/{apelido}")
 	public ResponseEntity<List<CartaoCredito>> getByApelido(@PathVariable String apelido){
-		return ResponseEntity.ok(repository.findAllApelidoContainingIgnoreCase(apelido));
+		return ResponseEntity.ok(repository.findAllByApelidoContainingIgnoreCase(apelido));
 	}
 	
 	@PostMapping

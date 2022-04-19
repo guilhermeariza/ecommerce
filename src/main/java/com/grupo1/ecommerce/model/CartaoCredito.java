@@ -6,7 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+<<<<<<< HEAD
 //import javax.persistence.JoinColumn;
+=======
+>>>>>>> Vinicius
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -35,7 +38,7 @@ public class CartaoCredito {
 	private String numeroDoCartao;
 	
 	@NotNull
-	private Date dataValidade;
+	private String dataValidade;
 	
 	@NotNull
 	@Size(min = 3, max = 3)
@@ -96,4 +99,14 @@ public class CartaoCredito {
 	public void setCvv(String cvv) {
 		this.cvv = cvv;
 	}
+
+	public PessoaJuridica getPessoaJuridica() {
+		return pessoaJuridica;
+	}
+
+	public void setPessoaJuridica(PessoaJuridica pessoaJuridica) {
+		this.pessoaJuridica = pessoaJuridica;
+	}
+	
+	
 }

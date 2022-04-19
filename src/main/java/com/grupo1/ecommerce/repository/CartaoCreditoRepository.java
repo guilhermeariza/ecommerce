@@ -10,6 +10,6 @@ import com.grupo1.ecommerce.model.CartaoCredito;
 @Repository
 public interface CartaoCreditoRepository extends JpaRepository<CartaoCredito, Long>{
 
-	public List<CartaoCredito> findAllApelidoContainingIgnoreCase(String apelido);
+	public List<CartaoCredito> findAllByApelidoContainingIgnoreCase(String apelido);
 
 }
