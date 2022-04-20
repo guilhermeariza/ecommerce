@@ -53,8 +53,8 @@ public class CartaoCreditoController {
 		return ResponseEntity.ok(repository.save(cartao));
 	}
 
-	@DeleteMapping
-	public void delete(@PathVariable Long id) {
+	@DeleteMapping("/{id}")
+	public void delete(@PathVariable long id) {
 		repository.deleteById(id);
 	}
 }
