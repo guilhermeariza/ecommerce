@@ -103,5 +103,4 @@ public class CartaoCredito {
 		this.pessoaJuridica = pessoaJuridica;
 	}
 	
-	
 }
