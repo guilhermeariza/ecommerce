@@ -5,6 +5,7 @@ package com.grupo1.ecommerce.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,11 +23,8 @@ public class PessoaJuridicaController {
 	private PessoaJuridicaRepository repository;
 	
 	@GetMapping 
-	public List<PessoaJuridica> findAll(){
-		List<PessoaJuridica> lista = repository.findAll();
-		return lista;
-		
-	
+	public ResponseEntity<List<PessoaJuridica>> getAll(){
+		return ResponseEntity.ok(repository.findAll());
 	}
 
 }
