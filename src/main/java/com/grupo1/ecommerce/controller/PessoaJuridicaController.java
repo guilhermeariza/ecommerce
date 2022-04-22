@@ -5,7 +5,10 @@ package com.grupo1.ecommerce.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
+
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,6 +31,7 @@ public class PessoaJuridicaController {
 
 	@Autowired
 	private PessoaJuridicaRepository repository;
+
 
 	@GetMapping
 	public List<PessoaJuridica> findAll() {
@@ -60,6 +64,12 @@ public class PessoaJuridicaController {
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable long id) {
 		repository.deleteById(id);
+
+	}
+	@GetMapping 
+	public ResponseEntity<List<PessoaJuridica>> getAll(){
+		return ResponseEntity.ok(repository.findAll());
+
 	}
 
 }

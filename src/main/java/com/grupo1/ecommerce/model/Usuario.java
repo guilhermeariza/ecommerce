@@ -6,12 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -19,20 +18,27 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_usuario;
+	private Long id;
 	
 	private String usuario;
 	
 	@NotNull
 	@Size(min = 8, max = 15)
 	private String senha;
+	
+	@OneToOne(mappedBy = "usuario")
+	@JsonIgnoreProperties("usuario")
+	private PessoaJuridica pessoaJuridica;
+	
+	public Usuario() {
 
+	}
 	public Long getId_usuario() {
-		return id_usuario;
+		return id;
 	}
 
-	public void setId_usuario(Long id_usuario) {
-		this.id_usuario = id_usuario;
+	public void setId_usuario(Long id) {
+		this.id = id;
 	}
 
 	public String getUsuario() {
@@ -50,7 +56,22 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public PessoaJuridica getPessoaJuridica() {
+		return pessoaJuridica;
+	}
+
+	public void setPessoaJuridica(PessoaJuridica pessoaJuridica) {
+		this.pessoaJuridica = pessoaJuridica;
+	}
 	
 }
-	
 	

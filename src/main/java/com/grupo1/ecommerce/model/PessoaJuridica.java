@@ -7,17 +7,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "tb_pessoa_juridica")
+@Table(name = "tb_pessoa_juridica" , uniqueConstraints = {@UniqueConstraint(columnNames = {"razaoSocial","cnpj"})})
 public class PessoaJuridica {
 	
 	@Id
@@ -29,24 +29,25 @@ public class PessoaJuridica {
 	private String nomeFantasia;
 	
 	@NotNull
+	@Size(min = 1, max = 50)
+	private String razaoSocial;
+	
+	@NotNull
 	@Size(min = 5, max = 50)
 	private String email;
 	
     @NotNull
     @Size(min = 18, max = 18)
     private String cnpj;
-    
-    @OneToOne (cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_usuario")
+     
+    @OneToOne
+    @JsonIgnoreProperties("pessoaJuridica")
 	private Usuario usuario;
     
     @OneToMany(mappedBy = "pessoaJuridica", cascade = CascadeType.REMOVE)
-    @JsonIgnoreProperties("tb_pessoa_juridica")
-    
+    @JsonIgnoreProperties("pessoaJuridica")
 	private List <CartaoCredito> cartaoCredito;
-    
- 
-    
+        
 	public PessoaJuridica() {
 		
 	}
@@ -97,6 +98,22 @@ public class PessoaJuridica {
 
 	public void setCartaoCredito(List<CartaoCredito> cartaoCredito) {
 		this.cartaoCredito = cartaoCredito;
+	}
+
+	public String getRazaoSocial() {
+		return razaoSocial;
+	}
+
+	public void setRazaoSocial(String razaoSocial) {
+		this.razaoSocial = razaoSocial;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
 }	
