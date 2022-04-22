@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
@@ -38,6 +39,10 @@ public class PessoaJuridica {
     @NotNull
     @Size(min = 18, max = 18)
     private String cnpj;
+    
+    @OneToOne
+    @JsonIgnoreProperties("pessoaJuridica")
+	private Usuario usuario;
     
     @OneToMany(mappedBy = "pessoaJuridica", cascade = CascadeType.REMOVE)
     @JsonIgnoreProperties("pessoaJuridica")
