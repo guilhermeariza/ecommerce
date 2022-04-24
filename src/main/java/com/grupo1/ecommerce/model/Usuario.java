@@ -1,5 +1,7 @@
 package com.grupo1.ecommerce.model;
 
+
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,7 +10,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -31,6 +32,13 @@ public class Usuario {
 	
 	public Usuario() {
 
+	}
+	public Long getId_usuario() {
+		return id;
+	}
+
+	public void setId_usuario(Long id) {
+		this.id = id;
 	}
 
 	public String getUsuario() {
@@ -66,3 +74,4 @@ public class Usuario {
 	}
 	
 }
+	

@@ -39,7 +39,7 @@ public class PessoaJuridica {
     @NotNull
     @Size(min = 18, max = 18)
     private String cnpj;
-    
+     
     @OneToOne
     @JsonIgnoreProperties("pessoaJuridica")
 	private Usuario usuario;
@@ -47,7 +47,7 @@ public class PessoaJuridica {
     @OneToMany(mappedBy = "pessoaJuridica", cascade = CascadeType.REMOVE)
     @JsonIgnoreProperties("pessoaJuridica")
 	private List <CartaoCredito> cartaoCredito;
-    
+        
 	public PessoaJuridica() {
 		
 	}
