@@ -5,10 +5,7 @@ package com.grupo1.ecommerce.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.http.HttpStatus;
-
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.grupo1.ecommerce.model.PessoaJuridica;
-
 import com.grupo1.ecommerce.repository.PessoaJuridicaRepository;
 
 @RestController
@@ -32,11 +28,10 @@ public class PessoaJuridicaController {
 	@Autowired
 	private PessoaJuridicaRepository repository;
 
-
 	@GetMapping
-	public List<PessoaJuridica> findAll() {
-		List<PessoaJuridica> lista = repository.findAll();
-		return lista;
+	public ResponseEntity<List<PessoaJuridica>> getAll(){
+		return ResponseEntity.ok(repository.findAll());
+
 	}
 
 	@GetMapping("/{id}")
@@ -49,7 +44,6 @@ public class PessoaJuridicaController {
 	public ResponseEntity<List<PessoaJuridica>> GetBynomeFantasia(@PathVariable String nomeFantasia) {
 		return ResponseEntity.ok(repository.findAllBynomeFantasiaContainingIgnoreCase(nomeFantasia));
 	}
-
 
 	@PostMapping
 	public ResponseEntity<PessoaJuridica> post(@RequestBody PessoaJuridica pessoaJuridica) {
@@ -64,12 +58,6 @@ public class PessoaJuridicaController {
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable long id) {
 		repository.deleteById(id);
-
-	}
-	@GetMapping 
-	public ResponseEntity<List<PessoaJuridica>> getAll(){
-		return ResponseEntity.ok(repository.findAll());
-
 	}
 
 }
