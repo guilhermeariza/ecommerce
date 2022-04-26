@@ -47,6 +47,10 @@ public class PessoaJuridica {
     @OneToMany(mappedBy = "pessoaJuridica", cascade = CascadeType.REMOVE)
     @JsonIgnoreProperties("pessoaJuridica")
 	private List <CartaoCredito> cartaoCredito;
+    
+    @OneToMany(mappedBy="pessoaJuridica", cascade = CascadeType.REMOVE)
+    @JsonIgnoreProperties("pessoaJuridica")
+    private List<Carrinho> carrinho;
         
 	public PessoaJuridica() {
 		

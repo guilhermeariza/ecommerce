@@ -34,15 +34,10 @@ public class CarrinhoController {
 	
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Carrinho> getAll(@PathVariable Long id){
+	public ResponseEntity<Carrinho> getById(@PathVariable Long id){
 		return repository.findById(id)
 				.map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
-	}
-	
-	@GetMapping("carrinho/{id}")
-	public ResponseEntity<List<Carrinho>> getById(@PathVariable Long id){
-		return ResponseEntity.ok(repository.findAllById(id));
 	}
 	
 	@PostMapping
