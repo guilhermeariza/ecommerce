@@ -7,5 +7,6 @@ import com.grupo1.ecommerce.model.Produto;
 
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto, Long>{
+	
 
 }
