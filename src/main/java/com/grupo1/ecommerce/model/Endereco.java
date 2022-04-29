@@ -1,12 +1,16 @@
 package com.grupo1.ecommerce.model;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_endereco")
@@ -28,6 +32,10 @@ public class Endereco {
 	@NotNull
 	@Size(min = 1, max = 20)
 	private String status;
+	
+	@ManyToOne
+    @JsonIgnoreProperties("endereco")
+    private PessoaJuridica pessoaJuridica;
 	
 
 	public Endereco() {
@@ -65,5 +73,16 @@ public class Endereco {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	public PessoaJuridica getPessoaJuridica() {
+		return pessoaJuridica;
+	}
+
+	public void setPessoaJuridica(PessoaJuridica pessoaJuridica) {
+		this.pessoaJuridica = pessoaJuridica;
+	}
+
+
+	
 
 }

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -37,9 +38,9 @@ public class Produto {
 	@NotNull
 	private double preco;
 
-	@OneToMany(mappedBy = "produto", cascade = CascadeType.REMOVE)
+	@ManyToOne
 	@JsonIgnoreProperties("produto")
-	private List<Carrinho> carrinho;
+	private Carrinho carrinho;
 
 	
 	public Produto() {
@@ -85,15 +86,16 @@ public class Produto {
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
-	
-	public List<Carrinho> getCarrinho() {
+
+	public Carrinho getCarrinho() {
 		return carrinho;
 	}
 
-
-	public void setCarrinho(List<Carrinho> carrinho) {
+	public void setCarrinho(Carrinho carrinho) {
 		this.carrinho = carrinho;
 	}
+	
+
 
 	
 

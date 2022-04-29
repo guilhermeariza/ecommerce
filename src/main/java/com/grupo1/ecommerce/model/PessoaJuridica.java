@@ -48,9 +48,13 @@ public class PessoaJuridica {
     @JsonIgnoreProperties("pessoaJuridica")
 	private List <CartaoCredito> cartaoCredito;
     
+    @OneToOne(mappedBy="pessoaJuridica", cascade = CascadeType.REMOVE)
+    @JsonIgnoreProperties("pessoaJuridica")
+    private Carrinho carrinho;
+    
     @OneToMany(mappedBy="pessoaJuridica", cascade = CascadeType.REMOVE)
     @JsonIgnoreProperties("pessoaJuridica")
-    private List<Carrinho> carrinho;
+    private List <Endereco> endereco;
         
 	public PessoaJuridica() {
 		
@@ -96,14 +100,6 @@ public class PessoaJuridica {
 		this.cnpj = cnpj;
 	}
 
-	public List<CartaoCredito> getCartaoCredito() {
-		return cartaoCredito;
-	}
-
-	public void setCartaoCredito(List<CartaoCredito> cartaoCredito) {
-		this.cartaoCredito = cartaoCredito;
-	}
-
 	public String getRazaoSocial() {
 		return razaoSocial;
 	}
@@ -119,5 +115,31 @@ public class PessoaJuridica {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+
+	public List<CartaoCredito> getCartaoCredito() {
+		return cartaoCredito;
+	}
+
+	public void setCartaoCredito(List<CartaoCredito> cartaoCredito) {
+		this.cartaoCredito = cartaoCredito;
+	}
+	
+	public Carrinho getCarrinho() {
+		return carrinho;
+	}
+
+	public void setCarrinho(Carrinho carrinho) {
+		this.carrinho = carrinho;
+	}
+
+	public List<Endereco> getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(List<Endereco> endereco) {
+		this.endereco = endereco;
+	}
+	
+	
 	
 }	
