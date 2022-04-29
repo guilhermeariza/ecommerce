@@ -18,6 +18,11 @@ public class UserDetailsImpl implements UserDetails{
 		this.password = usuario.getSenha();
 	}
 
+	public UserDetailsImpl()
+	{
+		
+	}
+	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return null;
