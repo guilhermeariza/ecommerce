@@ -36,7 +36,7 @@ public class UsuarioService {
 				String autoHeader = "Basic" + new String(encodeAuth);
 				userLogin.get().setToken(autoHeader);
 				userLogin.get().setUsuario(usuario.get().getUsuario());
-				
+				return userLogin;
 			}
 		}
 		return null;
