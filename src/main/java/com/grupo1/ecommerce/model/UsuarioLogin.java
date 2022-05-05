@@ -2,6 +2,7 @@ package com.grupo1.ecommerce.model;
 
 public class UsuarioLogin {
 	
+	private Long id;
 	private String usuario;
 	private String senha;
 	private String token;
@@ -10,6 +11,14 @@ public class UsuarioLogin {
 		return usuario;
 	}
 	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}

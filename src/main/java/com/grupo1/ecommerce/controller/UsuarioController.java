@@ -21,7 +21,7 @@ import com.grupo1.ecommerce.model.Usuario;
 import com.grupo1.ecommerce.repository.UsuarioRepository;
 
 @RestController
-@RequestMapping(value = "/usuario")
+@RequestMapping(value = "/usuarios")
 @CrossOrigin("*")
 public class UsuarioController {
 
@@ -41,7 +41,7 @@ public class UsuarioController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/usuario/{usuario}")
+	@GetMapping("/usuarios/{usuario}")
 	public ResponseEntity<List<Usuario>> GetByTitulo(@PathVariable String  usuario){
 		return ResponseEntity.ok(repository.findAllByUsuarioContainingIgnoreCase( usuario));
 	}
