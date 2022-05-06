@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-
 import com.grupo1.ecommerce.model.Usuario;
 import com.grupo1.ecommerce.repository.UsuarioRepository;
 
@@ -60,6 +58,4 @@ public class UsuarioController {
 	public void delete(@PathVariable long id_usuario) {
 		repository.deleteById(id_usuario);
 	}	
-	
 }
-
