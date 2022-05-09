@@ -36,7 +36,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 		httpSecurity.authorizeRequests()
 		.antMatchers("/usuarios/login").permitAll()
 		.antMatchers("/usuarios/cadastrar").permitAll()
-		.antMatchers().authenticated()
+		.anyRequest().authenticated() //o erro estava nesta linha, eu digitei antMatchers no lugar de anyRequest
 		.and().httpBasic()
 		.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		.and().cors()
