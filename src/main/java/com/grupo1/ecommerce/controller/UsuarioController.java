@@ -32,7 +32,7 @@ public class UsuarioController {
 		return listaUsuario;
 	}
 	
-	@GetMapping("/{id_usuario}")
+	@GetMapping("/{id}")
 	public ResponseEntity<Usuario> GetById(@PathVariable long id_usuario){
 		return repository.findById(id_usuario)
 				.map(resp -> ResponseEntity.ok(resp))
@@ -54,8 +54,17 @@ public class UsuarioController {
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(usuario));
 	}
 	
-	@DeleteMapping("/{id_usuario}")
-	public void delete(@PathVariable long id_usuario) {
-		repository.deleteById(id_usuario);
+	@DeleteMapping("/{id}")
+	public void delete(@PathVariable long id) {
+		repository.deleteById(id);
 	}	
+<<<<<<< HEAD
 }
+=======
+	
+}
+
+
+
+
+>>>>>>> main

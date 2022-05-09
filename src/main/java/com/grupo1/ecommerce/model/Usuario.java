@@ -20,24 +20,36 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotNull
+	@Size(min=5,max=100)
 	private String usuario;
 	
 	@NotNull
 	@Size(min = 8, max = 15)
 	private String senha;
-	
+		
 	@OneToOne(mappedBy = "usuario")
 	@JsonIgnoreProperties("usuario")
 	private PessoaJuridica pessoaJuridica;
 	
-	public Usuario() {
-
+	public Usuario(long id,String usuario,  String senha) {
+		this.id = id;
+		this.usuario = usuario;
+		this.senha = senha;
+		
 	}
-	public Long getId_usuario() {
+	
+	public Usuario()
+	{
+		
+	}
+
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId_usuario(Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -57,14 +69,6 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public PessoaJuridica getPessoaJuridica() {
 		return pessoaJuridica;
 	}
@@ -72,6 +76,8 @@ public class Usuario {
 	public void setPessoaJuridica(PessoaJuridica pessoaJuridica) {
 		this.pessoaJuridica = pessoaJuridica;
 	}
+
 	
-}
+	}
+	
 	

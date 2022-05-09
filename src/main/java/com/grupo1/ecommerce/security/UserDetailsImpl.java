@@ -13,9 +13,11 @@ public class UserDetailsImpl implements UserDetails{
 	
 	private String user;
 	private String password;
+	
 	private List<GrantedAuthority> authorities;
 	
-	public UserDetailsImpl(Usuario usuario) {
+	public UserDetailsImpl(Usuario usuario) 
+	{
 		this.user = usuario.getUsuario();
 		this.password = usuario.getSenha();
 	}
