@@ -39,6 +39,14 @@ public class PessoaJuridica {
     @NotNull
     @Size(min = 18, max = 18)
     private String cnpj;
+    
+    @NotNull
+	@Size(min = 5, max = 100)
+	private String enderecoCadastro;
+	
+	@NotNull
+	@Size(min = 9, max = 9)
+	private String cep;
      
     @OneToOne
     @JsonIgnoreProperties("pessoaJuridica")
