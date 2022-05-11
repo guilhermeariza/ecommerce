@@ -20,7 +20,6 @@ public class Produto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	
 	@NotNull
 	@Size(min = 5, max = 100)
 	private String nome;

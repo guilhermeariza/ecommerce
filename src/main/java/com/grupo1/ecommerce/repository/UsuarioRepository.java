@@ -11,9 +11,10 @@ import com.grupo1.ecommerce.model.Usuario;
 @Repository
 public interface  UsuarioRepository  extends JpaRepository<Usuario, Long> {
 
-	public List<Usuario>findAllByUsuarioContainingIgnoreCase(String titulo);
-	
 	public Optional<Usuario> findByUsuario(String usuario);
+	
+	public List<Usuario>findAllByUsuarioContainingIgnoreCase(String usuario);
+	
 
 
 }

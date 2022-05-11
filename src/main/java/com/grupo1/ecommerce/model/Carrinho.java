@@ -65,8 +65,6 @@ public class Carrinho {
 		this.quantidade = quantidade;
 	}
 	
-	
-
 	public List<Produto> getProduto() {
 		return produto;
 	}
