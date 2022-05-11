@@ -52,6 +52,10 @@ public class CartaoCredito {
 		this.dataValidade = dataValidade;
 		this.cvv = cvv;
 	}
+	
+	public CartaoCredito() {
+		
+	}
 
 	public Long getId() {
 		return id;

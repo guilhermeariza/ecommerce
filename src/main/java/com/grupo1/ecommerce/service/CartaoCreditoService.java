@@ -12,14 +12,11 @@ import com.grupo1.ecommerce.repository.CartaoCreditoRepository;
 public class CartaoCreditoService {
 	@Autowired
 	private CartaoCreditoRepository cartaoCreditoRepository;
-	
-	public Optional<CartaoCredito> CadastrarCartao(CartaoCredito cartao){
-		if (cartaoCreditoRepository.findByNumero(cartao.getNumeroCartao()).isPresent()) {
+
+	public Optional<CartaoCredito> CadastrarCartao(CartaoCredito cartao) {
+		if (cartaoCreditoRepository.findByNumeroCartao(cartao.getNumeroCartao()).isPresent())
 			return Optional.empty();
-		} else {
-			return Optional.of(cartaoCreditoRepository.save(cartao));
-		}
+
+		return Optional.of(cartaoCreditoRepository.save(cartao));
 	}
-	
-	
 }

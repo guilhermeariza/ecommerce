@@ -14,6 +14,6 @@ public interface CartaoCreditoRepository extends JpaRepository<CartaoCredito, Lo
 	public List<CartaoCredito> findAllByApelidoContainingIgnoreCase(String apelido);
 
 	//Busca por número de cartão
-	public Optional<CartaoCredito> findByNumero(String numeroCartao);
+	public Optional<CartaoCredito> findByNumeroCartao(String numeroCartao);
 
 }
