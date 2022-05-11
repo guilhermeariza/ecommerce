@@ -44,10 +44,15 @@ public class CartaoCredito {
 	@JsonIgnoreProperties("cartaoCredito")
 	private PessoaJuridica pessoaJuridica;
 	
-	public CartaoCredito() {
-		
+	public CartaoCredito(Long id, String apelido, String nomeCartao, String numeroCartao, String dataValidade, String cvv) {
+		this.id = id;
+		this.apelido = apelido;
+		this.nomeCartao = nomeCartao;
+		this.numeroCartao = numeroCartao;
+		this.dataValidade = dataValidade;
+		this.cvv = cvv;
 	}
-	
+
 	public Long getId() {
 		return id;
 }
