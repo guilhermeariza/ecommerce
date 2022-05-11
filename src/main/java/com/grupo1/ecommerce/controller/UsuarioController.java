@@ -45,7 +45,7 @@ public class UsuarioController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/usuarios/{usuario}")
+	@GetMapping("/usuario/{usuario}")
 	public ResponseEntity<List<Usuario>> GetByTitulo(@PathVariable String  usuario){
 		return ResponseEntity.ok(repository.findAllByUsuarioContainingIgnoreCase( usuario));
 	}
@@ -70,9 +70,5 @@ public class UsuarioController {
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable long id) {
 		repository.deleteById(id);
-<<<<<<< HEAD
-	}	
-=======
 	}		
->>>>>>> main
 }
