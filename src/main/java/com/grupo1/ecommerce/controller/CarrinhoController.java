@@ -40,7 +40,7 @@ public class CarrinhoController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	@PostMapping
+	@PostMapping("/cadastrar")
 	public ResponseEntity<Carrinho> post(@RequestBody Carrinho carrinho){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(carrinho));
 	}
