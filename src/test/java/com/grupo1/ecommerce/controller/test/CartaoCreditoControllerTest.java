@@ -2,6 +2,7 @@ package com.grupo1.ecommerce.controller.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -18,6 +19,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.grupo1.ecommerce.model.CartaoCredito;
+import com.grupo1.ecommerce.repository.CartaoCreditoRepository;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT) //Cria a rondomização da porta, caso a 8080 esteja ocupada
 @TestInstance(TestInstance.Lifecycle.PER_CLASS) //Ciclo de vida do objeto de teste, será feito por classe. O objeto criado no primeiro teste será persistido enquanto a classe teste não for encerrada
@@ -26,6 +28,14 @@ public class CartaoCreditoControllerTest {
 	
 	@Autowired
 	private TestRestTemplate testRestTemplate;
+	
+	@Autowired
+	private CartaoCreditoRepository cartaoCreditoRepository;
+	
+	@BeforeAll
+	void start() {
+		cartaoCreditoRepository.deleteAll();
+	}
 	
 	@Test
 	@Order(1)
