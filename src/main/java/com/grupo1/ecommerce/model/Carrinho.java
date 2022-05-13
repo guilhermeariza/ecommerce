@@ -1,7 +1,5 @@
 package com.grupo1.ecommerce.model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,7 +27,7 @@ public class Carrinho {
 	
 	@ManyToOne
 	@JsonIgnoreProperties("carrinho")
-	private List<Produto> produto;
+	private Produto produto;
 	
 	@OneToOne
 	@JsonIgnoreProperties("carrinho")
@@ -64,11 +62,11 @@ public class Carrinho {
 		this.quantidade = quantidade;
 	}
 	
-	public List<Produto> getProduto() {
+	public Produto getProduto() {
 		return produto;
 	}
 
-	public void setProduto(List<Produto> produto) {
+	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
 

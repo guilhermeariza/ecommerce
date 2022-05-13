@@ -1,6 +1,5 @@
 package com.grupo1.ecommerce.model;
 
-
 import java.util.List;
 
 import javax.persistence.CascadeType;

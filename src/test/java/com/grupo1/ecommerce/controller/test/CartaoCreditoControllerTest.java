@@ -21,8 +21,8 @@ import org.springframework.http.ResponseEntity;
 import com.grupo1.ecommerce.model.CartaoCredito;
 import com.grupo1.ecommerce.repository.CartaoCreditoRepository;
 
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT) //Cria a rondomização da porta, caso a 8080 esteja ocupada
-@TestInstance(TestInstance.Lifecycle.PER_CLASS) //Ciclo de vida do objeto de teste, será feito por classe. O objeto criado no primeiro teste será persistido enquanto a classe teste não for encerrada
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class CartaoCreditoControllerTest {
 	
