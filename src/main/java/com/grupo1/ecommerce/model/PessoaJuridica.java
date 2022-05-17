@@ -67,6 +67,39 @@ public class PessoaJuridica {
 	public PessoaJuridica() {
 		
 	}
+	
+
+	public PessoaJuridica(Long id,  String nomeFantasia, String razaoSocial,
+			String email, String cnpj, String enderecoCadastro, String cep) {
+		this.id = id;
+		this.nomeFantasia = nomeFantasia;
+		this.razaoSocial = razaoSocial;
+		this.email = email;
+		this.cnpj = cnpj;
+		this.enderecoCadastro = enderecoCadastro;
+		this.cep = cep;
+	}
+
+
+	public String getEnderecoCadastro() {
+		return enderecoCadastro;
+	}
+
+
+	public void setEnderecoCadastro(String enderecoCadastro) {
+		this.enderecoCadastro = enderecoCadastro;
+	}
+
+
+	public String getCep() {
+		return cep;
+	}
+
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
 
 	public Long getId() {
 		return id;

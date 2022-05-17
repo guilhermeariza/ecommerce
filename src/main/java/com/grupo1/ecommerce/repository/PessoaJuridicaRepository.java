@@ -1,6 +1,7 @@
 package com.grupo1.ecommerce.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -15,6 +16,6 @@ public interface PessoaJuridicaRepository extends JpaRepository<PessoaJuridica, 
 
 		public List<PessoaJuridica> findAllByemailContainingIgnoreCase(String email);
 
-		public List<PessoaJuridica> findAllBycnpjContainingIgnoreCase(String cnpj);
+		public Optional<PessoaJuridica> findByCnpj(String cnpj);
 
 }
