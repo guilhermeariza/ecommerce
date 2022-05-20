@@ -43,7 +43,7 @@ public class CartaoCreditoController {
 		return ResponseEntity.ok(repository.findAllByApelidoContainingIgnoreCase(apelido));
 	}
 	
-	@PostMapping
+	@PostMapping("/cadastrar")
 	public ResponseEntity<CartaoCredito> post(@RequestBody CartaoCredito cartao){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(cartao));
 	}
@@ -58,5 +58,3 @@ public class CartaoCreditoController {
 		repository.deleteById(id);
 	}
 }
-
-

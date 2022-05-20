@@ -1,11 +1,13 @@
 package com.grupo1.ecommerce.model;
 
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -34,10 +36,9 @@ public class Produto {
 	@NotNull
 	private double preco;
 
-	@ManyToOne
+	@OneToMany(mappedBy = "produto", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("produto")
-	private Carrinho carrinho;
-
+	private List<Carrinho> carrinho;
 	
 	public Produto() {
 		
@@ -83,23 +84,12 @@ public class Produto {
 		this.preco = preco;
 	}
 
-	public Carrinho getCarrinho() {
+	public List<Carrinho> getCarrinho() {
 		return carrinho;
 	}
 
-	public void setCarrinho(Carrinho carrinho) {
+	public void setCarrinho(List<Carrinho> carrinho) {
 		this.carrinho = carrinho;
 	}
-	
-
-
-	
 
 }
-
-
-/*@ManyToMany
-@JoinTable(name = "produto_carrinho", 
-	joinColumns = @JoinColumn(name = "idProduto"),
-	inverseJoinColumns = @JoinColumn(name = "idCarrinho")
-)*/

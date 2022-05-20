@@ -12,7 +12,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-
 @EnableWebSecurity
 public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 
@@ -21,14 +20,11 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		
 		auth.userDetailsService(userDetailsService);
-		
 		auth.inMemoryAuthentication()
 		.withUser("root")
 		.password(passwordEncoder().encode("root"))
 		.authorities("ROLE_USER");
-
 	} 
 	
 	@Bean
@@ -44,6 +40,9 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers("/usuarios/logar").permitAll()
 		.antMatchers("/usuarios/cadastrar").permitAll()
 		.antMatchers("/pessoajuridica/cadastrar").permitAll()
+		.antMatchers("/carrinho/cadastrar").permitAll()
+		.antMatchers("/cartaocredito/cadastrar").permitAll()
+		.antMatchers("/endereco/cadastrar").permitAll()
 		.antMatchers(HttpMethod.OPTIONS).permitAll()//para acertar no heroku
 		.anyRequest().authenticated()// qualquer outro end point diferente  dos acima terá quer ser autenticado
 		.and().httpBasic()
@@ -51,6 +50,4 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 		.and().cors()
 		.and().csrf().disable();
 	}
-	
 }
-

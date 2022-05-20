@@ -30,14 +30,21 @@ public class Endereco {
 	private String cep;
 	
 	@NotNull
-	@Size(min = 1, max = 20)
-	private String status;
+	private Boolean status;
 	
 	@ManyToOne
     @JsonIgnoreProperties("endereco")
     private PessoaJuridica pessoaJuridica;
 	
-
+	
+	
+	public Endereco(Long id, String enderecoCadastro, String cep, Boolean status) {
+		this.id = id;
+		this.enderecoCadastro = enderecoCadastro;
+		this.cep = cep;
+		this.status = status;
+	}
+	
 	public Endereco() {
 		
 	}
@@ -66,11 +73,11 @@ public class Endereco {
 		this.cep = cep;
 	}
 	
-	public String getStatus() {
+	public Boolean getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Boolean status) {
 		this.status = status;
 	}
 
