@@ -41,6 +41,8 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers("/usuarios/cadastrar").permitAll()
 		.antMatchers("/carrinho/cadastrar").permitAll()
 		.antMatchers("/cartaocredito/cadastrar").permitAll()
+		.antMatchers("/endereco/cadastrar").permitAll()
+
 		.antMatchers(HttpMethod.OPTIONS).permitAll()//para acertar no heroku
 		.anyRequest().authenticated()// qualquer outro end point diferente  dos acima terá quer ser autenticado
 		.and().httpBasic()
