@@ -5,7 +5,6 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,7 +19,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.DisplayName;
 
 import com.grupo1.ecommerce.model.PessoaJuridica;
-import com.grupo1.ecommerce.model.Usuario;
 import com.grupo1.ecommerce.repository.PessoaJuridicaRepository;
 import com.grupo1.ecommerce.service.PessoaJuridicaService;
 
