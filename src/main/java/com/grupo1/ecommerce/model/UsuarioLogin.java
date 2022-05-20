@@ -40,7 +40,6 @@ public class UsuarioLogin {
 		this.token = token;
 	}
 
-
 	public String getFoto() {
 		return foto;
 	}

@@ -70,7 +70,6 @@ public class Carrinho {
 		this.quantidade = quantidade;
 	}
 	
-
 	public Produto getProduto() {
 		return produto;
 	}
@@ -87,16 +86,4 @@ public class Carrinho {
 		this.pessoaJuridica = pessoaJuridica;
 	}
 
-	
-
-
-
 }
-
-/*@JoinTable(name = "produto_carrinho", 
-uniqueConstraints = @UniqueConstraint(columnNames = {"idProduto", "idCarrinho"}),
-joinColumns = @JoinColumn(name = "idCarrinho"),
-inverseJoinColumns = @JoinColumn(name = "idProduto")
-)*/
-
-//@ManyToMany(mappedBy = "carrinho", cascade = CascadeType.REMOVE)

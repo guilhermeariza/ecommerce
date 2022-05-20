@@ -1,6 +1,5 @@
 package com.grupo1.ecommerce.model;
 
-
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -40,7 +39,6 @@ public class Produto {
 	@OneToMany(mappedBy = "produto", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("produto")
 	private List<Carrinho> carrinho;
-
 	
 	public Produto() {
 		
@@ -94,17 +92,4 @@ public class Produto {
 		this.carrinho = carrinho;
 	}
 
-	
-	
-
-
-	
-
 }
-
-
-/*@ManyToMany
-@JoinTable(name = "produto_carrinho", 
-	joinColumns = @JoinColumn(name = "idProduto"),
-	inverseJoinColumns = @JoinColumn(name = "idCarrinho")
-)*/
