@@ -35,6 +35,10 @@ public class Produto {
 	
 	@NotNull
 	private double preco;
+	
+	private String categoria;
+	
+	private String foto;
 
 	@OneToMany(mappedBy = "produto", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("produto")
@@ -91,5 +95,23 @@ public class Produto {
 	public void setCarrinho(List<Carrinho> carrinho) {
 		this.carrinho = carrinho;
 	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+	
+	
 
 }
