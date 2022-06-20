@@ -5,7 +5,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -16,13 +15,11 @@ public class Carrinho {
 	@Id
 	private Long id;
 	
-	@NotNull
+	
 	private Boolean status;
 	
-	@NotNull
 	private int quantidade;
 	
-	@NotNull
 	private int periodoLocacao;
 	
 	@ManyToOne
