@@ -47,6 +47,11 @@ public class UsuarioService {
 				usuarioLogin.get().setUsuario(usuario.get().getUsuario());
 				usuarioLogin.get().setToken(gerarBasicToken(usuarioLogin.get().getUsuario(), usuarioLogin.get().getSenha()));
 				usuarioLogin.get().setSenha(usuario.get().getSenha());
+				usuarioLogin.get().setCnpj(usuario.get().getCnpj());
+				usuarioLogin.get().setRazaoSocial(usuario.get().getRazaoSocial());
+				usuarioLogin.get().setNomeFantasia(usuario.get().getNomeFantasia());
+				usuarioLogin.get().setFoto(usuario.get().getFoto());
+				usuarioLogin.get().setTipo(usuario.get().getTipo());
 				return usuarioLogin;
 			}
 		}	

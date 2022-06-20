@@ -7,6 +7,10 @@ public class UsuarioLogin {
 	private String senha;
 	private String token;
 	private String foto;
+	private String nomeFantasia;
+	private String razaoSocial;
+	private String cnpj;
+	private String tipo;
 	
 	public Long getId() {
 		return id;
@@ -46,6 +50,38 @@ public class UsuarioLogin {
 
 	public void setFoto(String foto) {
 		this.foto = foto;
+	}
+
+	public String getNomeFantasia() {
+		return nomeFantasia;
+	}
+
+	public void setNomeFantasia(String nomeFantasia) {
+		this.nomeFantasia = nomeFantasia;
+	}
+
+	public String getRazaoSocial() {
+		return razaoSocial;
+	}
+
+	public void setRazaoSocial(String razaoSocial) {
+		this.razaoSocial = razaoSocial;
+	}
+
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 	
 }

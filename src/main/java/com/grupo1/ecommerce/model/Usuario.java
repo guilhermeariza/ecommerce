@@ -28,10 +28,18 @@ public class Usuario {
 	@Size(min=5,max=100)
 	private String usuario;
 	
+	private String nomeFantasia;
+	
+	private String razaoSocial;
+	
+	private String cnpj;
+	
 	@NotNull
 	private String senha;
 	
 	private String foto;
+	
+	private String tipo;
 		
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
     @JsonIgnoreProperties("usuario")
@@ -45,11 +53,15 @@ public class Usuario {
     @JsonIgnoreProperties("usuario")
     private List <Endereco> endereco;
 	
-	public Usuario(long id,String usuario, String senha, String foto) {
+	public Usuario(long id,String usuario, String senha, String foto, String nomeFantasia, String cnpj, String razaoSocial, String tipo) {
 		this.id = id;
 		this.usuario = usuario;
 		this.senha = senha;
 		this.foto = foto;
+		this.nomeFantasia = nomeFantasia;
+		this.razaoSocial = razaoSocial;
+		this.cnpj = cnpj;
+		this.tipo = tipo;
 	}
 	
 	public Usuario()
@@ -112,6 +124,38 @@ public class Usuario {
 
 	public void setEndereco(List<Endereco> endereco) {
 		this.endereco = endereco;
+	}
+
+	public String getNomeFantasia() {
+		return nomeFantasia;
+	}
+
+	public void setNomeFantasia(String nomeFantasia) {
+		this.nomeFantasia = nomeFantasia;
+	}
+
+	public String getRazaoSocial() {
+		return razaoSocial;
+	}
+
+	public void setRazaoSocial(String razaoSocial) {
+		this.razaoSocial = razaoSocial;
+	}
+
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	
