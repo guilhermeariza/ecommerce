@@ -25,7 +25,6 @@ public class Usuario {
 	private String usuario;
 	
 	@NotNull
-	@Size(min = 8)
 	private String senha;
 		
 	@OneToOne(mappedBy = "usuario")

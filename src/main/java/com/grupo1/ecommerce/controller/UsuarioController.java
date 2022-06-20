@@ -3,6 +3,8 @@ package com.grupo1.ecommerce.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,55 +22,54 @@ import com.grupo1.ecommerce.model.Usuario;
 import com.grupo1.ecommerce.model.UsuarioLogin;
 import com.grupo1.ecommerce.repository.UsuarioRepository;
 import com.grupo1.ecommerce.service.UsuarioService;
-
 @RestController
 @RequestMapping(value = "/usuarios")
 @CrossOrigin("*")
 public class UsuarioController {
-
+	
 	@Autowired
-	private UsuarioRepository repository;
+	private UsuarioRepository usuarioRepository;
 	
 	@Autowired
 	private UsuarioService usuarioService;
 	
 	@GetMapping 
-	public List<Usuario> findAll(){
-		List<Usuario> listaUsuario = repository.findAll();
-		return listaUsuario;
+	public ResponseEntity <List<Usuario>> getAll(){	
+		return ResponseEntity.ok(usuarioRepository.findAll());
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Usuario> GetById(@PathVariable long id_usuario){
-		return repository.findById(id_usuario)
-				.map(resp -> ResponseEntity.ok(resp))
+	public ResponseEntity<Usuario> getById(@PathVariable Long id) {
+		return usuarioRepository.findById(id)
+				.map(resposta -> ResponseEntity.ok(resposta))
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/usuario/{usuario}")
-	public ResponseEntity<List<Usuario>> GetByTitulo(@PathVariable String  usuario){
-		return ResponseEntity.ok(repository.findAllByUsuarioContainingIgnoreCase( usuario));
-	}
-	
-	@PostMapping("/cadastrar")
-	public ResponseEntity<Usuario> post (@RequestBody Usuario usuario){
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save( usuario));
-	}
-	
 	@PostMapping("/logar")
-	public ResponseEntity<UsuarioLogin> Autentication(@RequestBody Optional<UsuarioLogin> user)
+	public ResponseEntity<UsuarioLogin> login(@RequestBody Optional<UsuarioLogin> usuarioLogin)
 	{
-		return usuarioService.Logar(user).map(resp -> ResponseEntity.ok(resp))
+		return usuarioService.autenticarUsuario(usuarioLogin).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}
 	
+	@PostMapping("/cadastrar")
+	public ResponseEntity<Usuario> postUsuario(@Valid @RequestBody Usuario usuario) {
+
+		return usuarioService.cadastrarUsuario(usuario)
+			.map(resposta -> ResponseEntity.status(HttpStatus.CREATED).body(resposta))
+			.orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
+
+	}
+	
 	@PutMapping("/atualizar")
-	public ResponseEntity<Usuario> put (@RequestBody Usuario usuario){
-		return ResponseEntity.status(HttpStatus.OK).body(repository.save(usuario));
+	public ResponseEntity<Usuario> putUsuario(@Valid @RequestBody Usuario usuario) {
+		return usuarioService.atualizarUsuario(usuario)
+				.map(resposta -> ResponseEntity.status(HttpStatus.OK).body(resposta))
+				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable long id) {
-		repository.deleteById(id);
+		usuarioRepository.deleteById(id);
 	}		
 }
