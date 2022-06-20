@@ -42,7 +42,7 @@ public class CarrinhoControllerTest {
 	@DisplayName("Cadastrar um carrinho")
 	public void deveCriarUmCarrinho() {
 		HttpEntity<Carrinho> requisicao = new HttpEntity<Carrinho>(new Carrinho(
-				0L, true, 40));
+				0L, true, 40, 10));
 		ResponseEntity<Carrinho> resposta = testRestTemplate
 				.exchange("/carrinho/cadastrar", HttpMethod.POST, requisicao, Carrinho.class);
 		

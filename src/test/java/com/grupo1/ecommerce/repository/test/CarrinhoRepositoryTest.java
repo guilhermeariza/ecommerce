@@ -30,10 +30,10 @@ public class CarrinhoRepositoryTest {
 	@BeforeAll
 	void start() {
 		carrinhoRepository.deleteAll();
-		carrinhoRepository.save(new Carrinho(0L, true, 40));
-		carrinhoRepository.save(new Carrinho(0L, false, 30));
-		carrinhoRepository.save(new Carrinho(0L, false, 10));
-		carrinhoRepository.save(new Carrinho(0L, false, 20));
+		carrinhoRepository.save(new Carrinho(0L, true, 40, 1));
+		carrinhoRepository.save(new Carrinho(0L, false, 30, 10));
+		carrinhoRepository.save(new Carrinho(0L, false, 10, 20));
+		carrinhoRepository.save(new Carrinho(0L, false, 20, 20));
 	}
 	
 	@Test

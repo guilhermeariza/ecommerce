@@ -39,14 +39,6 @@ public class PessoaJuridica {
     @NotNull
     @Size(min = 18, max = 18)
     private String cnpj;
-    
-    @NotNull
-	@Size(min = 5, max = 100)
-	private String enderecoCadastro;
-	
-	@NotNull
-	@Size(min = 9, max = 9)
-	private String cep;
      
     @OneToOne
     @JsonIgnoreProperties("pessoaJuridica")
@@ -76,30 +68,7 @@ public class PessoaJuridica {
 		this.razaoSocial = razaoSocial;
 		this.email = email;
 		this.cnpj = cnpj;
-		this.enderecoCadastro = enderecoCadastro;
-		this.cep = cep;
 	}
-
-
-	public String getEnderecoCadastro() {
-		return enderecoCadastro;
-	}
-
-
-	public void setEnderecoCadastro(String enderecoCadastro) {
-		this.enderecoCadastro = enderecoCadastro;
-	}
-
-
-	public String getCep() {
-		return cep;
-	}
-
-
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
-
 
 	public Long getId() {
 		return id;

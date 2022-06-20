@@ -1,8 +1,6 @@
 package com.grupo1.ecommerce.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -16,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Carrinho {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@NotNull
@@ -26,7 +23,7 @@ public class Carrinho {
 	private int quantidade;
 	
 	@NotNull
-	private String periodoLocacao;
+	private int periodoLocacao;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("carrinho")
@@ -37,10 +34,11 @@ public class Carrinho {
 	private PessoaJuridica pessoaJuridica;
 	
 	
-	public Carrinho(Long id, Boolean status, int quantidade) {
+	public Carrinho(Long id, Boolean status, int quantidade, int periodoLocacao) {
 		this.id = id;
 		this.status = status;
 		this.quantidade = quantidade;
+		this.periodoLocacao = periodoLocacao;
 
 	}
 
@@ -73,11 +71,11 @@ public class Carrinho {
 		this.quantidade = quantidade;
 	}
 	
-	public String getPeriodoLocacao() {
+	public int getPeriodoLocacao() {
 		return periodoLocacao;
 	}
 
-	public void setPeriodoLocacao(String periodoLocacao) {
+	public void setPeriodoLocacao(int periodoLocacao) {
 		this.periodoLocacao = periodoLocacao;
 	}
 
