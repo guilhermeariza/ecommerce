@@ -57,7 +57,7 @@ public class UsuarioControllerTest {
 	@Order(2)
 	@DisplayName("Não deve permitir duplicação de usuário")
 	public void naoDeveDuplicarUsuario() {
-		usuarioService.CadastrarUsuario(new Usuario(0L, "bianca.ariza@gmail.com", "123456789"));
+		usuarioService.cadastrarUsuario(new Usuario(0L, "bianca.ariza@gmail.com", "123456789"));
 		HttpEntity<Usuario> requisicao = new HttpEntity<Usuario>(new Usuario(0L, "bianca.ariza@gmail.com", "123456789"));
 		ResponseEntity<Usuario> resposta = testRestTemplate.exchange("/usuarios/cadastrar", HttpMethod.POST, requisicao,
 				Usuario.class);

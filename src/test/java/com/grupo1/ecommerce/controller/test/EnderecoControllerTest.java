@@ -41,7 +41,7 @@ public class EnderecoControllerTest {
 	@Order(1)
 	@DisplayName("Cadastrar um endereço")
 	public void deveCriarUmEndereco() {
-		HttpEntity<Endereco> requisicao = new HttpEntity<Endereco>(new Endereco(0L, "Avenida São João", "08717890", true));
+		HttpEntity<Endereco> requisicao = new HttpEntity<Endereco>(new Endereco(0L, "Avenida São João", "08717890"));
 		ResponseEntity<Endereco> resposta = testRestTemplate.exchange("/endereco/cadastrar", HttpMethod.POST, requisicao, Endereco.class);
 		assertEquals(HttpStatus.CREATED, resposta.getStatusCode());
 		assertEquals(requisicao.getBody().getId(), resposta.getBody().getId());
