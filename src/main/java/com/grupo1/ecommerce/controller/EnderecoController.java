@@ -38,7 +38,7 @@ public class EnderecoController {
 	            .orElse(ResponseEntity.notFound().build());
 	}
 
-	@PostMapping
+	@PostMapping("/cadastrar")
 	public ResponseEntity<Endereco> post(@RequestBody Endereco endereco){
 	    return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(endereco));
 	}
@@ -48,7 +48,7 @@ public class EnderecoController {
 	    return ResponseEntity.ok(repository.save(endereco));
 	}
 
-	@DeleteMapping
+	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 	        repository.deleteById(id);
 	}

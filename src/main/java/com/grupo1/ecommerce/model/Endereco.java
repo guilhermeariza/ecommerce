@@ -23,26 +23,20 @@ public class Endereco {
 	
 	@NotNull
 	@Size(min = 5, max = 100)
-	private String enderecoCadastro;
+	private String endereco;
 	
 	@NotNull
 	@Size(min = 9, max = 9)
 	private String cep;
 	
-	@NotNull
-	private Boolean status;
-	
 	@ManyToOne
     @JsonIgnoreProperties("endereco")
     private PessoaJuridica pessoaJuridica;
 	
-	
-	
-	public Endereco(Long id, String enderecoCadastro, String cep, Boolean status) {
+	public Endereco(Long id, String endereco, String cep) {
 		this.id = id;
-		this.enderecoCadastro = enderecoCadastro;
+		this.endereco = endereco;
 		this.cep = cep;
-		this.status = status;
 	}
 	
 	public Endereco() {
@@ -57,12 +51,12 @@ public class Endereco {
 		this.id = id;
 	}
 
-	public String getEnderecoCadastro() {
-		return enderecoCadastro;
+	public String getEndereco() {
+		return endereco;
 	}
 
-	public void setEnderecoCadastro(String enderecoCadastro) {
-		this.enderecoCadastro = enderecoCadastro;
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 
 	public String getCep() {
@@ -71,14 +65,6 @@ public class Endereco {
 
 	public void setCep(String cep) {
 		this.cep = cep;
-	}
-	
-	public Boolean getStatus() {
-		return status;
-	}
-
-	public void setStatus(Boolean status) {
-		this.status = status;
 	}
 
 	public PessoaJuridica getPessoaJuridica() {
