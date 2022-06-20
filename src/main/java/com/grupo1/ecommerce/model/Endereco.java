@@ -30,7 +30,7 @@ public class Endereco {
 	
 	@ManyToOne
     @JsonIgnoreProperties("endereco")
-    private PessoaJuridica pessoaJuridica;
+    private Usuario usuario;
 	
 	public Endereco(Long id, String endereco, String cep) {
 		this.id = id;
@@ -66,15 +66,13 @@ public class Endereco {
 		this.cep = cep;
 	}
 
-	public PessoaJuridica getPessoaJuridica() {
-		return pessoaJuridica;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setPessoaJuridica(PessoaJuridica pessoaJuridica) {
-		this.pessoaJuridica = pessoaJuridica;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
-
-	
 
 }

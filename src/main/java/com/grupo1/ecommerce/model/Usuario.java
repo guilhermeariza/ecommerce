@@ -2,10 +2,14 @@ package com.grupo1.ecommerce.model;
 
 
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -26,16 +30,26 @@ public class Usuario {
 	
 	@NotNull
 	private String senha;
-		
-	@OneToOne(mappedBy = "usuario")
-	@JsonIgnoreProperties("usuario")
-	private PessoaJuridica pessoaJuridica;
 	
-	public Usuario(long id,String usuario,  String senha) {
+	private String foto;
+		
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
+    @JsonIgnoreProperties("usuario")
+	private List <CartaoCredito> cartaoCredito;
+    
+    @OneToOne(mappedBy="usuario", cascade = CascadeType.REMOVE)
+    @JsonIgnoreProperties("usuario")
+    private Carrinho carrinho;
+    
+    @OneToMany(mappedBy="usuario", cascade = CascadeType.REMOVE)
+    @JsonIgnoreProperties("usuario")
+    private List <Endereco> endereco;
+	
+	public Usuario(long id,String usuario, String senha, String foto) {
 		this.id = id;
 		this.usuario = usuario;
 		this.senha = senha;
-		
+		this.foto = foto;
 	}
 	
 	public Usuario()
@@ -68,15 +82,37 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	public PessoaJuridica getPessoaJuridica() {
-		return pessoaJuridica;
+	public String getFoto() {
+		return foto;
 	}
 
-	public void setPessoaJuridica(PessoaJuridica pessoaJuridica) {
-		this.pessoaJuridica = pessoaJuridica;
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public List<CartaoCredito> getCartaoCredito() {
+		return cartaoCredito;
+	}
+
+	public void setCartaoCredito(List<CartaoCredito> cartaoCredito) {
+		this.cartaoCredito = cartaoCredito;
+	}
+
+	public Carrinho getCarrinho() {
+		return carrinho;
+	}
+
+	public void setCarrinho(Carrinho carrinho) {
+		this.carrinho = carrinho;
+	}
+
+	public List<Endereco> getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(List<Endereco> endereco) {
+		this.endereco = endereco;
 	}
 
 	
-	}
-	
-	
+}

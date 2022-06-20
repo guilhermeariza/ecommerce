@@ -31,7 +31,7 @@ public class Carrinho {
 	
 	@OneToOne
 	@JsonIgnoreProperties("carrinho")
-	private PessoaJuridica pessoaJuridica;
+	private Usuario usuario;
 	
 	
 	public Carrinho(Long id, Boolean status, int quantidade, int periodoLocacao) {
@@ -87,12 +87,13 @@ public class Carrinho {
 		this.produto = produto;
 	}
 
-	public PessoaJuridica getPessoaJuridica() {
-		return pessoaJuridica;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setPessoaJuridica(PessoaJuridica pessoaJuridica) {
-		this.pessoaJuridica = pessoaJuridica;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
+
 
 }

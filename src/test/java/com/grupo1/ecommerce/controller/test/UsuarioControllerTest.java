@@ -46,7 +46,7 @@ public class UsuarioControllerTest {
 	@DisplayName("Cadastrar um Usuário")
 	public void deveCriarUmUsuario() {
 		HttpEntity<Usuario> requisicao = new HttpEntity<Usuario>(
-				new Usuario(0L, "paloma.campanholi@gmail.com", "13456789"));
+				new Usuario(0L, "paloma.campanholi@gmail.com", "13456789", null));
 		ResponseEntity<Usuario> resposta = testRestTemplate.exchange("/usuarios/cadastrar", HttpMethod.POST, requisicao,
 				Usuario.class);
 		assertEquals(HttpStatus.CREATED, resposta.getStatusCode());
@@ -57,8 +57,8 @@ public class UsuarioControllerTest {
 	@Order(2)
 	@DisplayName("Não deve permitir duplicação de usuário")
 	public void naoDeveDuplicarUsuario() {
-		usuarioService.cadastrarUsuario(new Usuario(0L, "bianca.ariza@gmail.com", "123456789"));
-		HttpEntity<Usuario> requisicao = new HttpEntity<Usuario>(new Usuario(0L, "bianca.ariza@gmail.com", "123456789"));
+		usuarioService.cadastrarUsuario(new Usuario(0L, "bianca.ariza@gmail.com", "123456789", null));
+		HttpEntity<Usuario> requisicao = new HttpEntity<Usuario>(new Usuario(0L, "bianca.ariza@gmail.com", "123456789", null));
 		ResponseEntity<Usuario> resposta = testRestTemplate.exchange("/usuarios/cadastrar", HttpMethod.POST, requisicao,
 				Usuario.class);
 		assertEquals(HttpStatus.BAD_REQUEST, resposta.getStatusCode());
@@ -68,7 +68,7 @@ public class UsuarioControllerTest {
 	@Order(3)
 	@DisplayName("Alterar um usuário")
 	public void deveAlterarUmUsuario() {
-		Usuario usuarioUpdate = new Usuario(0L, "bianca.arizaantunes@gmail.com", "13456789");
+		Usuario usuarioUpdate = new Usuario(0L, "bianca.arizaantunes@gmail.com", "13456789", null);
 		HttpEntity<Usuario> requisicao = new HttpEntity<Usuario>(usuarioUpdate);
 		ResponseEntity<Usuario> resposta = testRestTemplate.withBasicAuth("root", "root")
 				.exchange("/usuarios/cadastrar", HttpMethod.PUT, requisicao, Usuario.class);
