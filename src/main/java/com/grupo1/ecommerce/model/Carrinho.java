@@ -25,6 +25,9 @@ public class Carrinho {
 	@NotNull
 	private int quantidade;
 	
+	@NotNull
+	private String periodoLocacao;
+	
 	@ManyToOne
 	@JsonIgnoreProperties("carrinho")
 	private Produto produto;
@@ -70,6 +73,14 @@ public class Carrinho {
 		this.quantidade = quantidade;
 	}
 	
+	public String getPeriodoLocacao() {
+		return periodoLocacao;
+	}
+
+	public void setPeriodoLocacao(String periodoLocacao) {
+		this.periodoLocacao = periodoLocacao;
+	}
+
 	public Produto getProduto() {
 		return produto;
 	}
