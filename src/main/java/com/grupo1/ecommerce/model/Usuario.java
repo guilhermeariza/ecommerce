@@ -45,9 +45,9 @@ public class Usuario {
     @JsonIgnoreProperties("usuario")
 	private List <CartaoCredito> cartaoCredito;
     
-    @OneToOne(mappedBy="usuario", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy="usuario", cascade = CascadeType.REMOVE)
     @JsonIgnoreProperties("usuario")
-    private Carrinho carrinho;
+    private List<Carrinho> carrinho;
     
     @OneToMany(mappedBy="usuario", cascade = CascadeType.REMOVE)
     @JsonIgnoreProperties("usuario")
@@ -110,11 +110,11 @@ public class Usuario {
 		this.cartaoCredito = cartaoCredito;
 	}
 
-	public Carrinho getCarrinho() {
+	public List<Carrinho> getCarrinho() {
 		return carrinho;
 	}
 
-	public void setCarrinho(Carrinho carrinho) {
+	public void setCarrinho(List<Carrinho> carrinho) {
 		this.carrinho = carrinho;
 	}
 

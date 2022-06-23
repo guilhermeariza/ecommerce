@@ -50,7 +50,7 @@ public class CarrinhoController {
 		return ResponseEntity.ok(repository.save(carrinho));
 	}
 
-	@DeleteMapping
+	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 		repository.deleteById(id);
 	}
