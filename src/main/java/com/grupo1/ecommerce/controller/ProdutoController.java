@@ -41,15 +41,20 @@ public class ProdutoController {
 	
 	@GetMapping("/produto/{nome}")
 	public ResponseEntity<List<Produto>> GetByNome(@PathVariable String nome) {
-		return ResponseEntity.ok(repository.findAllBynomeContainingIgnoreCase(nome));
+		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome));
 	}
 	
-	@PostMapping
+	@GetMapping("/categoria/{categoria}")
+	public ResponseEntity<List<Produto>> GetByCategoria(@PathVariable String categoria) {
+		return ResponseEntity.ok(repository.findAllByCategoriaContainingIgnoreCase(categoria));
+	}
+	
+	@PostMapping("/cadastrar")
 	public ResponseEntity<Produto> post(@RequestBody Produto produto){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(produto));
 	}
 	
-	@PutMapping
+	@PutMapping("/atualizar")
 	public ResponseEntity<Produto> put(@RequestBody Produto produto){
 		return ResponseEntity.ok(repository.save(produto));
 	}

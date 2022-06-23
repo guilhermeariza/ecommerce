@@ -20,24 +20,24 @@ public class CartaoCredito {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull
-	@Size(min = 3, max = 20)
+	//@NotNull
+	@Size(min = 3, max = 50)
 	private String apelido;
 	
 	@NotNull
-	@Size(min = 5, max = 20)
+	@Size(min = 5, max = 50)
 	private String nomeCartao;
 	
 	@NotNull
-	@Size(min = 16, max = 16)
+	//@Size(min = 16, max = 19)
 	private String numeroCartao;
 	
 	@NotNull
-	@Size(min = 5, max = 5)
+	//@Size(min = 5, max = 8)
 	private String dataValidade;
 	
 	@NotNull
-	@Size(min = 3, max = 3)
+	//@Size(min = 3, max = 3)
 	private String cvv;
 	
 	@ManyToOne
