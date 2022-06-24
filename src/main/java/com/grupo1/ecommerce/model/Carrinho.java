@@ -17,7 +17,7 @@ public class Carrinho {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private Boolean status;
+	private String status;
 	
 	private int quantidade;
 	
@@ -32,7 +32,7 @@ public class Carrinho {
 	private Usuario usuario;
 	
 	
-	public Carrinho(Long id, Boolean status, int quantidade, int periodoLocacao) {
+	public Carrinho(Long id, String status, int quantidade, int periodoLocacao) {
 		this.id = id;
 		this.status = status;
 		this.quantidade = quantidade;
@@ -52,11 +52,11 @@ public class Carrinho {
 		this.id = id;
 	}
 	
-	public Boolean getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(Boolean status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
