@@ -1,15 +1,10 @@
 package com.grupo1.ecommerce.model;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -18,50 +13,29 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Carrinho {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String nomeProduto;
 	
-	private int idProduto;
-	
-	private String foto;
-	
-	private String descrição;
-	
-	private String categoria;
+	private Boolean status;
 	
 	private int quantidade;
 	
-	private double valorUnitario;
-	
-	private double valorTotal;
-	
-	@UpdateTimestamp
-	private LocalDateTime data;
-	
-	private String status;
+	private int periodoLocacao;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("carrinho")
+	private Produto produto;
+	
+	@OneToOne
+	@JsonIgnoreProperties("carrinho")
 	private Usuario usuario;
 	
-	public Carrinho(
-			Long id, 
-			String nomeProduto,
-			int idProduto,
-			String foto,
-			String descrição, 
-			String categoria, 
-			int quantidade, 
-			double valorUnitario,
-			double valorTotal,
-			LocalDateTime data,
-			String status
-			) {
+	
+	public Carrinho(Long id, Boolean status, int quantidade, int periodoLocacao) {
 		this.id = id;
 		this.status = status;
 		this.quantidade = quantidade;
+		this.periodoLocacao = periodoLocacao;
 
 	}
 
@@ -77,11 +51,11 @@ public class Carrinho {
 		this.id = id;
 	}
 	
-	public String getStatus() {
+	public Boolean getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Boolean status) {
 		this.status = status;
 	}
 
@@ -94,6 +68,21 @@ public class Carrinho {
 		this.quantidade = quantidade;
 	}
 	
+	public int getPeriodoLocacao() {
+		return periodoLocacao;
+	}
+
+	public void setPeriodoLocacao(int periodoLocacao) {
+		this.periodoLocacao = periodoLocacao;
+	}
+
+	public Produto getProduto() {
+		return produto;
+	}
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
 
 	public Usuario getUsuario() {
 		return usuario;
@@ -101,70 +90,6 @@ public class Carrinho {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}
-
-	public String getNomeProduto() {
-		return nomeProduto;
-	}
-
-	public void setNomeProduto(String nomeProduto) {
-		this.nomeProduto = nomeProduto;
-	}
-
-	public int getIdProduto() {
-		return idProduto;
-	}
-
-	public void setIdProduto(int idProduto) {
-		this.idProduto = idProduto;
-	}
-
-	public String getDescrição() {
-		return descrição;
-	}
-
-	public void setDescrição(String descrição) {
-		this.descrição = descrição;
-	}
-
-	public String getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
-	}
-
-	public double getValorUnitario() {
-		return valorUnitario;
-	}
-
-	public void setValorUnitario(double preco) {
-		this.valorUnitario = preco;
-	}
-
-	public double getValorTotal() {
-		return valorTotal;
-	}
-
-	public void setValorTotal(double valorTotal) {
-		this.valorTotal = valorTotal;
-	}
-
-	public LocalDateTime getData() {
-		return data;
-	}
-
-	public void setData(LocalDateTime data) {
-		this.data = data;
-	}
-
-	public String getFoto() {
-		return foto;
-	}
-
-	public void setFoto(String foto) {
-		this.foto = foto;
 	}
 
 
