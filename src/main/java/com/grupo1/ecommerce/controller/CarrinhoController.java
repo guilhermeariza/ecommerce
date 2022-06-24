@@ -32,7 +32,6 @@ public class CarrinhoController {
 		return lista;
 	}
 	
-	
 	@GetMapping("/{id}")
 	public ResponseEntity<Carrinho> getById(@PathVariable Long id){
 		return repository.findById(id)
@@ -40,12 +39,17 @@ public class CarrinhoController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	@PostMapping("/cadastrar")
+	@GetMapping("/{status}")
+	public ResponseEntity<List<Carrinho>> GetByStatus(@PathVariable String status) {
+		return ResponseEntity.ok(repository.findAllByStatusContainingIgnoreCase(status));
+	}
+	
+	@PostMapping("/adicionar")
 	public ResponseEntity<Carrinho> post(@RequestBody Carrinho carrinho){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(carrinho));
 	}
 	
-	@PutMapping
+	@PutMapping("/atualizar")
 	public ResponseEntity<Carrinho> put(@RequestBody Carrinho carrinho){
 		return ResponseEntity.ok(repository.save(carrinho));
 	}
@@ -54,7 +58,5 @@ public class CarrinhoController {
 	public void delete(@PathVariable Long id) {
 		repository.deleteById(id);
 	}
-	//Comentario
 
 }
-

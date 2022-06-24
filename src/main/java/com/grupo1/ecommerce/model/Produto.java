@@ -1,18 +1,12 @@
 package com.grupo1.ecommerce.model;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_produto")
@@ -39,10 +33,6 @@ public class Produto {
 	private String categoria;
 	
 	private String foto;
-
-	@OneToMany(mappedBy = "produto", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties("produto")
-	private List<Carrinho> carrinho;
 	
 	public Produto() {
 		
@@ -86,14 +76,6 @@ public class Produto {
 
 	public void setPreco(double preco) {
 		this.preco = preco;
-	}
-
-	public List<Carrinho> getCarrinho() {
-		return carrinho;
-	}
-
-	public void setCarrinho(List<Carrinho> carrinho) {
-		this.carrinho = carrinho;
 	}
 
 	public String getCategoria() {
