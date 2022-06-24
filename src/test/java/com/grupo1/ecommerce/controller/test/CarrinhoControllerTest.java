@@ -37,7 +37,7 @@ public class CarrinhoControllerTest {
 		carrinhoRepository.deleteAll();
 	}
 	
-	@Test
+	/*@Test
 	@Order(1)
 	@DisplayName("Cadastrar um carrinho")
 	public void deveCriarUmCarrinho() {
@@ -50,6 +50,6 @@ public class CarrinhoControllerTest {
 		assertEquals(requisicao.getBody().getId(), resposta.getBody().getId());
 		
 	}
-	
+	*/
 	
 }

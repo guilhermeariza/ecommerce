@@ -43,6 +43,7 @@ public class CartaoCredito {
 	@ManyToOne
 	@JsonIgnoreProperties("cartaoCredito")
 	private Usuario usuario;
+
 	
 	public CartaoCredito(Long id, String apelido, String nomeCartao, String numeroCartao, String dataValidade, String cvv) {
 		this.id = id;
@@ -113,5 +114,7 @@ public class CartaoCredito {
 		this.usuario = usuario;
 	}
 
+
+	
 	
 }
