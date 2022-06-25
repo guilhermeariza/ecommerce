@@ -47,7 +47,7 @@ public class EnderecoController {
 	public ResponseEntity<Endereco> put(@RequestBody Endereco endereco){
 	    return ResponseEntity.ok(repository.save(endereco));
 	}
-
+	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 	        repository.deleteById(id);
