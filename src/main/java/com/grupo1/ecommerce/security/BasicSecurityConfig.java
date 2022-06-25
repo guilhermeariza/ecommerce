@@ -40,6 +40,12 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers("/**").permitAll()
         .antMatchers("/usuarios/logar").permitAll()
         .antMatchers("/usuarios/cadastrar").permitAll()
+        
+        .antMatchers("/produto").permitAll()
+        .antMatchers("/produto/{id}").permitAll()
+        .antMatchers("/produto/{nome}").permitAll()
+        .antMatchers("/cadastrar").permitAll()
+        .antMatchers("/atualizar").permitAll()
 		.antMatchers(HttpMethod.OPTIONS).permitAll()//para acertar no heroku
 		.anyRequest().authenticated()// qualquer outro end point diferente  dos acima terá quer ser autenticado
 		.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

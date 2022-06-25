@@ -30,9 +30,20 @@ public class Produto {
 	@NotNull
 	private double preco;
 	
+	@NotNull
 	private String categoria;
 	
 	private String foto;
+	
+	public Produto(Long id, String nome, int estoque, String descricao, double preco, String categoria, String foto) {
+		this.id = id;
+		this.nome = nome;
+		this.estoque = estoque;
+		this.descricao = descricao;
+		this.preco = preco;
+		this.categoria = categoria;
+		this.foto = foto;
+	}
 	
 	public Produto() {
 		

@@ -43,7 +43,7 @@ public class EnderecoController {
 	    return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(endereco));
 	}
 
-	@PutMapping
+	@PutMapping("/atualizar")
 	public ResponseEntity<Endereco> put(@RequestBody Endereco endereco){
 	    return ResponseEntity.ok(repository.save(endereco));
 	}

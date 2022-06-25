@@ -48,7 +48,7 @@ public class CartaoCreditoController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(cartao));
 	}
 	
-	@PutMapping
+	@PutMapping("/atualizar")
 	public ResponseEntity<CartaoCredito> put(@RequestBody CartaoCredito cartao){
 		return ResponseEntity.ok(repository.save(cartao));
 	}
