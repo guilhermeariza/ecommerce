@@ -40,7 +40,7 @@ public class CartaoCredito {
 	private String cvv;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("cartaoCredito")
+	//@JsonIgnoreProperties("cartaoCredito")
 	private Usuario usuario;
 
 	
