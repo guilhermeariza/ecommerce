@@ -15,43 +15,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.grupo1.ecommerce.model.Produto;
-import com.grupo1.ecommerce.repository.ProdutoRepository;
+import com.grupo1.ecommerce.model.Categoria;
+import com.grupo1.ecommerce.repository.CategoriaRepository;
 
 @RestController
-@RequestMapping(value = "/produto")
+@RequestMapping(value = "/categoria")
 @CrossOrigin("*")
-public class ProdutoController {
+public class CategoriaController {
 	
 	@Autowired
-	private ProdutoRepository repository;
+	private CategoriaRepository repository;
 	
 	@GetMapping 
-	public List<Produto> findAll(){
-		List<Produto> lista = repository.findAll();
+	public List<Categoria> findAll(){
+		List<Categoria> lista = repository.findAll();
 		return lista;
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Produto> getById(@PathVariable Long id){
+	public ResponseEntity<Categoria> getById(@PathVariable Long id){
 		return repository.findById(id)
 				.map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/produto/{nome}")
-	public ResponseEntity<List<Produto>> GetByNome(@PathVariable String nome) {
-		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome));
-	}
 	
 	@PostMapping("/cadastrar")
-	public ResponseEntity<Produto> post(@RequestBody Produto produto){
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(produto));
+	public ResponseEntity<Categoria> post(@RequestBody Categoria categoria){
+		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(categoria));
 	}
 	
 	@PutMapping("/atualizar")
-	public ResponseEntity<Produto> put(@RequestBody Produto produto){
-		return ResponseEntity.ok(repository.save(produto));
+	public ResponseEntity<Categoria> put(@RequestBody Categoria categoria){
+		return ResponseEntity.ok(repository.save(categoria));
 	}
 
 	@DeleteMapping("/{id}")
@@ -60,4 +56,3 @@ public class ProdutoController {
 	}
 
 }
-

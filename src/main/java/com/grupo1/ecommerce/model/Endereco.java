@@ -10,8 +10,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 @Entity
 @Table(name = "tb_endereco")
 public class Endereco {
@@ -29,7 +27,7 @@ public class Endereco {
 	private String cep;
 	
 	@ManyToOne
-    @JsonIgnoreProperties("endereco")
+    //@JsonIgnoreProperties("endereco")
     private Usuario usuario;
 
 	
