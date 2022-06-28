@@ -41,17 +41,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
         .antMatchers("/usuarios/logar").permitAll()
         .antMatchers("/usuarios/cadastrar").permitAll()
         
-        .antMatchers("/produto").permitAll()
-        .antMatchers("/produto/{id}").permitAll()
-        .antMatchers("/produto/{nome}").permitAll()
-        .antMatchers("/produto/cadastrar").permitAll()
-        .antMatchers("/produto/atualizar").permitAll()
-        
-        .antMatchers("/endereco").permitAll()
-        .antMatchers("/endereco/{id}").permitAll()
-        .antMatchers("/endereco/{nome}").permitAll()
-        .antMatchers("/endereco/cadastrar").permitAll()
-        .antMatchers("/endereco/atualizar").permitAll()
+
 		.antMatchers(HttpMethod.OPTIONS).permitAll()//para acertar no heroku
 		.anyRequest().authenticated()// qualquer outro end point diferente  dos acima terá quer ser autenticado
 		.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
