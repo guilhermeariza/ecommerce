@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.grupo1.ecommerce.model.Carrinho;
 import com.grupo1.ecommerce.repository.CarrinhoRepository;
+import com.grupo1.ecommerce.service.CarrinhoService;
 
 @RestController
 @RequestMapping(value = "/carrinho")
@@ -25,6 +26,9 @@ public class CarrinhoController {
 	
 	@Autowired
 	private CarrinhoRepository repository;
+	
+	@Autowired
+	private CarrinhoService carrinhoService;
 	
 	@GetMapping 
 	public List<Carrinho> findAll(){
@@ -46,12 +50,19 @@ public class CarrinhoController {
 	
 	@PostMapping("/adicionar")
 	public ResponseEntity<Carrinho> post(@RequestBody Carrinho carrinho){
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(carrinho));
+		return  ResponseEntity.status(HttpStatus.CREATED).body(repository.save(carrinho));
 	}
 	
 	@PutMapping("/atualizar")
 	public ResponseEntity<Carrinho> put(@RequestBody Carrinho carrinho){
 		return ResponseEntity.ok(repository.save(carrinho));
+	}
+	
+	@PutMapping("/pedido")
+	public ResponseEntity<Carrinho> fazerPedido(@RequestBody Carrinho carrinho){
+		return carrinhoService.fazerPedido(carrinho)
+				.map(resposta -> ResponseEntity.status(HttpStatus.OK).body(resposta))
+				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
 
 	@DeleteMapping("/{id}")
