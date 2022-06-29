@@ -37,36 +37,12 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception
 	{
 		http.authorizeRequests()
+        //.antMatchers("/usuarios/logar").permitAll()
+        //.antMatchers("/usuarios/cadastrar").permitAll()
 		.antMatchers("/**").permitAll()
-        .antMatchers("/usuarios/logar").permitAll()
-        .antMatchers("/usuarios/cadastrar").permitAll()
-        
-        .antMatchers("/carrinho/cadastrar").permitAll()
-
-        .antMatchers("/cartaocredito/cadastrar").permitAll()
-        .antMatchers("/cartaocredito").permitAll()
-        .antMatchers("/cartaocredito/{id}").permitAll()
-
-        .antMatchers("/endereco/cadastrar").permitAll()
-        .antMatchers("/endereco/{id}").permitAll()
-        .antMatchers("/endereco").permitAll()
-
-        .antMatchers("/produto").permitAll()
-        .antMatchers("/produto/cadastrar").permitAll()
-        .antMatchers("/produto/atualizar").permitAll()
-        .antMatchers("/produto/{id}").permitAll()
-        
-        .antMatchers("/categoria").permitAll()
-        .antMatchers("/categoria/cadastrar").permitAll()
-        .antMatchers("/categoria/atualizar").permitAll()
-        .antMatchers("/categoria/{id}").permitAll()
-        
-        .antMatchers("/cartaocredito").permitAll()
-        .antMatchers("/cartaocredito/cadastrar").permitAll()
-        .antMatchers("/cartaocredito/atualizar").permitAll()
-        .antMatchers("/cartaocredito/{id}").permitAll()
 		.antMatchers(HttpMethod.OPTIONS).permitAll()//para acertar no heroku
-		.anyRequest().authenticated()// qualquer outro end point diferente  dos acima terá quer ser autenticado
+		.anyRequest().authenticated()
+		.and().httpBasic()
 		.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		.and().cors()
 		.and().csrf().disable();
