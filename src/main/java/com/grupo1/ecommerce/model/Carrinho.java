@@ -27,7 +27,7 @@ public class Carrinho {
 	
 	private String foto;
 	
-	private String descrição;
+	private String descricao;
 	
 	private String categoria;
 	
@@ -48,95 +48,39 @@ public class Carrinho {
 	
 	
 	//Endereço
-	
-	
 	private String endereco;
-
 	private String cep;
-	
-	
-	
+
 	//Cartao de Crédito
-	
-
 	private String apelidoCartao;
-
 	private String nomeCartao;
-	
 	private String numeroCartao;
-	
 	private String dataValidadeCartao;
-	
 	private String cvvCartao;
 	
-	
-	public Carrinho(
-			Long id, 
-			String nomeProduto,
-			int idProduto,
-			String foto,
-			String descrição, 
-			String categoria, 
-			int quantidade, 
-			double valorUnitario,
-			double valorTotal,
-			LocalDateTime data,
-			String status,
-			
-			
-			String endereco,
-			String cep,
-			
-			
-			String apelido,
-			String nomeCartao,
-			String numeroCartao,
-			String dataValidade,
-			String cvv
-			
-			) {
+	public Carrinho(Long id, String nomeProduto,int idProduto,String foto,String descricao, String categoria, int quantidade, double valorUnitario,double valorTotal,LocalDateTime data,String status,String endereco,String cep,String apelido,String nomeCartao,String numeroCartao,String dataValidade,String cvvCartao) {
 		this.id = id;
 		this.status = status;
 		this.quantidade = quantidade;
-
+		this.idProduto = idProduto;
+		this.foto = foto;
+		this.descricao = descricao;
+		this.categoria = categoria;
+		this.quantidade = quantidade;
+		this.valorUnitario = valorUnitario;
+		this.valorTotal = valorTotal;
+		this.data = data;
+		this.status = status;
 	}
 
-	public Carrinho() {
-		
-	}
-	
+	public Carrinho() {}
+
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-	
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	
-	public int getQuantidade() {
-		return quantidade;
-	}
-
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
-	
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
 	}
 
 	public String getNomeProduto() {
@@ -155,12 +99,20 @@ public class Carrinho {
 		this.idProduto = idProduto;
 	}
 
-	public String getDescrição() {
-		return descrição;
+	public String getFoto() {
+		return foto;
 	}
 
-	public void setDescrição(String descrição) {
-		this.descrição = descrição;
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	public String getCategoria() {
@@ -171,12 +123,20 @@ public class Carrinho {
 		this.categoria = categoria;
 	}
 
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+
 	public double getValorUnitario() {
 		return valorUnitario;
 	}
 
-	public void setValorUnitario(double preco) {
-		this.valorUnitario = preco;
+	public void setValorUnitario(double valorUnitario) {
+		this.valorUnitario = valorUnitario;
 	}
 
 	public double getValorTotal() {
@@ -195,17 +155,21 @@ public class Carrinho {
 		this.data = data;
 	}
 
-	public String getFoto() {
-		return foto;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setFoto(String foto) {
-		this.foto = foto;
+	public void setStatus(String status) {
+		this.status = status;
 	}
-	
-	
-	/**************Endereço******************/
-	
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 	public String getEndereco() {
 		return endereco;
@@ -222,11 +186,6 @@ public class Carrinho {
 	public void setCep(String cep) {
 		this.cep = cep;
 	}
-
-	
-	
-	/**************Cartao******************/
-
 
 	public String getApelidoCartao() {
 		return apelidoCartao;
@@ -269,7 +228,4 @@ public class Carrinho {
 	}
 	
 	
-
-
-
 }
