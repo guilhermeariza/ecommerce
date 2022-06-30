@@ -59,10 +59,9 @@ public class CarrinhoController {
 	}
 	
 	@PutMapping("/pedido")
-	public ResponseEntity<Carrinho> fazerPedido(@RequestBody Carrinho carrinho){
-		return carrinhoService.fazerPedido(carrinho)
-				.map(resposta -> ResponseEntity.status(HttpStatus.OK).body(resposta))
-				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+	public ResponseEntity <List<Carrinho>> fazerPedido(@RequestBody List<Carrinho> carrinho){
+		return carrinhoService.fazerPedido(carrinho);
+				
 	}
 
 	@DeleteMapping("/{id}")

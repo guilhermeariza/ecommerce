@@ -1,8 +1,10 @@
 package com.grupo1.ecommerce.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.grupo1.ecommerce.model.Carrinho;
@@ -14,12 +16,12 @@ public class CarrinhoService {
 	@Autowired
 	private CarrinhoRepository carrinhoRepository;
 	
-	public Optional<Carrinho> fazerPedido(Carrinho carrinho){
-		if(carrinhoRepository.findById(carrinho.getId()).isPresent()) {
-			Optional<Carrinho> car = carrinhoRepository.findById(carrinho.getId());
+	public ResponseEntity <List<Carrinho>> fazerPedido(List<Carrinho> carrinho){
+		carrinho.forEach((item) -> {
+			Optional<Carrinho> car = carrinhoRepository.findById(item.getId());
 			car.get().setStatus("pedido");
-			return Optional.ofNullable(carrinhoRepository.save(carrinho));
-		}
-		return Optional.empty();
+			carrinhoRepository.save(item);
+		});
+		return ResponseEntity.ok(carrinho);
 	}
 }
