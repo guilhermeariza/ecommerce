@@ -33,10 +33,11 @@ public class Endereco {
     private Usuario usuario;
 
 	
-	public Endereco(Long id, String endereco, String cep) {
+	public Endereco(Long id, String endereco, String cep, Usuario usuario) {
 		this.id = id;
 		this.endereco = endereco;
 		this.cep = cep;
+		this.usuario = usuario;
 	}
 	
 	public Endereco() {

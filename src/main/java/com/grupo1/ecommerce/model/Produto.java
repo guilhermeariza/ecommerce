@@ -27,7 +27,7 @@ public class Produto {
 	private int estoque;
 	
 	@NotNull
-	@Size(min = 1, max = 500)
+	@Size(min = 1, max=5000)
 	private String descricao;
 	
 	@NotNull
