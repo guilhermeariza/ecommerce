@@ -1,7 +1,5 @@
 package com.grupo1.ecommerce.model;
 
-
-
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -27,17 +25,26 @@ public class Usuario {
 	@Size(min=5,max=100)
 	private String usuario;
 	
+	@NotNull
+	@Size(min=5)
 	private String nomeFantasia;
 	
+	@NotNull
+	@Size(min=5)
 	private String razaoSocial;
 	
+	@NotNull
+	@Size(min=5)
 	private String cnpj;
 	
 	@NotNull
+	@Size(min=5)
 	private String senha;
 	
 	private String foto;
 	
+	@NotNull
+	@Size(min=3)
 	private String tipo;
 		
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)

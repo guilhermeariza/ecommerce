@@ -39,6 +39,10 @@ public class CategoriaController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
+	@GetMapping("filtrar/{nomeCategoria}")
+	public ResponseEntity<List<Categoria>> getByCategoria(@PathVariable String nomeCategoria){
+		return ResponseEntity.ok(repository.findByNomeCategoriaContainingIgnoreCase(nomeCategoria));
+	}
 	
 	@PostMapping("/cadastrar")
 	public ResponseEntity<Categoria> post(@RequestBody Categoria categoria){
