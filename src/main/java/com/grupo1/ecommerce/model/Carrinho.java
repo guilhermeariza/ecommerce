@@ -1,6 +1,7 @@
 package com.grupo1.ecommerce.model;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,7 +39,7 @@ public class Carrinho {
 	private double valorTotal;
 	
 	@UpdateTimestamp
-	private LocalDateTime data;
+	private Date data;
 	
 	private String status;
 	
@@ -58,7 +59,7 @@ public class Carrinho {
 	private String dataValidadeCartao;
 	private String cvvCartao;
 	
-	public Carrinho(Long id, String nomeProduto,int idProduto,String foto,String descricao, String categoria, int quantidade, double valorUnitario,double valorTotal,LocalDateTime data,String status,String endereco,String cep,String apelido,String nomeCartao,String numeroCartao,String dataValidade,String cvvCartao) {
+	public Carrinho(Long id, String nomeProduto,int idProduto,String foto,String descricao, String categoria, int quantidade, double valorUnitario,double valorTotal,Date data,String status,String endereco,String cep,String apelido,String nomeCartao,String numeroCartao,String dataValidade,String cvvCartao) {
 		this.id = id;
 		this.status = status;
 		this.quantidade = quantidade;
@@ -147,11 +148,11 @@ public class Carrinho {
 		this.valorTotal = valorTotal;
 	}
 
-	public LocalDateTime getData() {
+	public Date getData() {
 		return data;
 	}
 
-	public void setData(LocalDateTime data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
 
