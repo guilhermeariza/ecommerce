@@ -20,9 +20,9 @@ public class SwaggerConfiguration {
 	{
 		return new  OpenAPI()
 				.info(new Info()
-					.title("Criação do Ecommerce da empresa Elertech ")
+					.title("Criação do Ecommerce da empresa Elertech")
 					.description("Projeto Desenvolvido por : Vinicius Campaguinolli , Guilherme Ariza, "
-							+ "Vanessa Jesus, Lucas Theberge, Pamela Azevedo e Lucinao Ferraz ")
+							+ "Vanessa Jesus, Lucas Theberge e Pamela Azevedo")
 					.version("v.0.1")
 				.license(new License()
 					.name("grupo1.ecommerce")
