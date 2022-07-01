@@ -42,23 +42,16 @@ public class Carrinho {
 	
 	private String status;
 	
+	private String formaPagamento;
+	
+	private String enderecoEntrega;
+	
 	@ManyToOne
 	@JsonIgnoreProperties("carrinho")
 	private Usuario usuario;
 	
 	
-	//Endereço
-	private String endereco;
-	private String cep;
-
-	//Cartao de Crédito
-	private String apelidoCartao;
-	private String nomeCartao;
-	private String numeroCartao;
-	private String dataValidadeCartao;
-	private String cvvCartao;
-	
-	public Carrinho(Long id, String nomeProduto,int idProduto,String foto,String descricao, String categoria, int quantidade, double valorUnitario,double valorTotal,LocalDateTime data,String status,String endereco,String cep,String apelido,String nomeCartao,String numeroCartao,String dataValidade,String cvvCartao) {
+	public Carrinho(Long id, String nomeProduto,int idProduto,String foto,String descricao, String categoria, int quantidade, double valorUnitario,double valorTotal,LocalDateTime data,String status,String formaPagamento, String enderecoEntrega) {
 		this.id = id;
 		this.status = status;
 		this.quantidade = quantidade;
@@ -71,6 +64,8 @@ public class Carrinho {
 		this.valorTotal = valorTotal;
 		this.data = data;
 		this.status = status;
+		this.formaPagamento = formaPagamento;
+		this.enderecoEntrega = enderecoEntrega;
 	}
 
 	public Carrinho() {}
@@ -171,61 +166,20 @@ public class Carrinho {
 		this.usuario = usuario;
 	}
 
-	public String getEndereco() {
-		return endereco;
+	public String getEnderecoEntrega() {
+		return enderecoEntrega;
 	}
 
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
+	public void setEnderecoEntrega(String enderecoEntrega) {
+		this.enderecoEntrega = enderecoEntrega;
 	}
 
-	public String getCep() {
-		return cep;
+	public String getFormaPagamento() {
+		return formaPagamento;
 	}
 
-	public void setCep(String cep) {
-		this.cep = cep;
+	public void setFormaPagamento(String formaPagamento) {
+		this.formaPagamento = formaPagamento;
 	}
-
-	public String getApelidoCartao() {
-		return apelidoCartao;
-	}
-
-	public void setApelidoCartao(String apelidoCartao) {
-		this.apelidoCartao = apelidoCartao;
-	}
-
-	public String getNomeCartao() {
-		return nomeCartao;
-	}
-
-	public void setNomeCartao(String nomeCartao) {
-		this.nomeCartao = nomeCartao;
-	}
-
-	public String getNumeroCartao() {
-		return numeroCartao;
-	}
-
-	public void setNumeroCartao(String numeroCartao) {
-		this.numeroCartao = numeroCartao;
-	}
-
-	public String getDataValidadeCartao() {
-		return dataValidadeCartao;
-	}
-
-	public void setDataValidadeCartao(String dataValidadeCartao) {
-		this.dataValidadeCartao = dataValidadeCartao;
-	}
-
-	public String getCvvCartao() {
-		return cvvCartao;
-	}
-
-	public void setCvvCartao(String cvvCartao) {
-		this.cvvCartao = cvvCartao;
-	}
-	
 	
 }
